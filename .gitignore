@@ -1,4 +1,5 @@
 *.pyc
+.idea
 virtualenv
 build
 test_project/test_app.sql
