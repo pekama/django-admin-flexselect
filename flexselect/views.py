@@ -16,10 +16,10 @@ def field_changed(request, *args, **kwargs):
     hashed_name = request.POST.__getitem__('hashed_name')
     widget = FlexSelectWidget.instances[hashed_name]
     instance = instance_from_request(request, widget)
-    value_fk = getattr(instance, widget.base_field.name)
+    # value_fk = getattr(instance, widget.base_field.name)
     if bool(int(request.POST.__getitem__('include_options'))):
         choices = choices_from_instance(instance, widget)
-        options = Select(choices=choices).render_options([], [value_fk.pk if value_fk else None])
+        options = Select(choices=choices).render_options([], [])
     else:
         options = None
 
